@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { StarsBackground } from "../components/StarsBackground/StarsBackground";
+import MainHeader from "../components/MainHeader/MainHeader.astro";
+import BioSection from "../components/Bio/Bio.astro";
+import AboutSection from "../components/About/About.astro";
+import MyProjects from "../components/MyProjects/MyProjects.astro";
+---
+
+<Layout title="Dariusz Praczuk - Frontend Developer">
+  <main class="relative font-gimenell">
+    <StarsBackground className="h-[540vh] absolute" />
+    <MainHeader />
+    <AboutSection />
+    <BioSection />s
+    <MyProjects />
+  </main>
+</Layout>

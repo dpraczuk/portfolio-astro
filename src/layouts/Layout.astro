@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+import "src/styles/main.css";
+import Logo from "public/favicon.svg";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      rel="preload"
+      href="/assets/fonts/GIMENELL.TTF"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+  </head>
+  <body class="relative">
+    <nav
+      class="absolute flex text-white z-20 font-gimenell text-xl tracking-wider mt-5 w-full"
+    >
+      <div
+        class="flex items-center max-w-screen-xl w-full mx-auto justify-between"
+      >
+        <a href={"/"}>
+          <Image src={Logo} alt={"logo"} class={"w-24 h-24"} />
+        </a>
+        <ul class="flex gap-6 z-10">
+          <li
+            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
+          >
+            01. About me
+          </li>
+          <li
+            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
+          >
+            02. Presentation
+          </li>
+          <li
+            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
+          >
+            03. Missions
+          </li>
+          <li
+            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
+          >
+            04. Contact
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <slot class="" />
+    <footer
+      class="relative z-10 text-2xl flex text-white font-gimenell justify-center"
+    >
+      © 2024 Dariusz Praczuk. All rights reserved
+    </footer>
+  </body>
+</html>
+
+<script>
+  function generateRandomPercent(min = 0, max = 100) {
+    const randomInteger = Math.floor(Math.random() * (max + 1));
+    return `${randomInteger}%`;
+  }
+  function generateRandomDelay(interval = 3) {
+    const randomInteger = Math.random() * (interval + 1);
+    return `${randomInteger}s`;
+  }
+
+  function createStar() {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.top = generateRandomPercent();
+    star.style.left = generateRandomPercent();
+    star.style.animationDelay = generateRandomDelay();
+    return star;
+  }
+
+  function renderStars(amount = 150) {
+    const containers = document.getElementsByClassName("starsContainer");
+    const placeholdersArray = Array(amount).fill("star_placeholder");
+
+    for (let i = 0; i < containers.length; i++) {
+      const starsArray = placeholdersArray.map((starPlacholder, index) =>
+        createStar()
+      );
+      containers[i].append(...starsArray);
+    }
+  }
+
+  renderStars();
+</script>
+
+<style is:global>
+  html {
+    overflow-x: hidden;
+  }
+  .starsContainer {
+    margin: 0;
+    /* width: 100vw;
+    height: 100vh; */
+    background-color: #120a30;
+    /* position: relative; */
+    z-index: 10;
+  }
+
+  .star {
+    background-color: #f0f0f0;
+    width: 1.5px;
+    height: 1.5px;
+    position: absolute;
+    border: #f0f0f0 0px solid;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.5);
+    animation-name: glow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    z-index: 10;
+  }
+
+  .pixel-violet-container {
+    padding: 0 40px;
+    background-color: rgb(129, 18, 247, 0.1);
+    box-shadow:
+      -10px 0 0 0 rgb(162, 139, 255),
+      10px 0 0 0 rgb(129, 18, 247),
+      0 -10px 0 0 rgb(162, 139, 255),
+      0 10px 0 0 rgb(129, 18, 247);
+  }
+
+  .pixel-flat-pink-container {
+    margin: 40px auto;
+    background-color: rgb(191, 28, 255, 0.3);
+    box-shadow:
+      -9px 0 0 0 rgb(222, 143, 254),
+      9px 0 0 0 rgb(191, 28, 255),
+      0 -9px 0 0 rgb(222, 143, 254),
+      0 9px 0 0 rgb(191, 28, 255);
+  }
+
+  .retro-desktop-container {
+    background-color: black;
+    width: 100%;
+    box-shadow:
+      -9px 0 0 0 rgb(171, 171, 171),
+      9px 0 0 0 rgb(171, 171, 171),
+      0 -9px 0 0 rgb(171, 171, 171),
+      0 9px 0 0 rgb(171, 171, 171);
+  }
+
+  @keyframes glow {
+    0% {
+      opacity: 0;
+      transform: scale(1, 1);
+      z-index: 10;
+    }
+    20% {
+      opacity: 0.5;
+      z-index: 10;
+    }
+    35% {
+      opacity: 1;
+      z-index: 10;
+    }
+    50% {
+      transform: scale(2, 2);
+      z-index: 10;
+    }
+    100% {
+      transform: scale(1, 1);
+      z-index: 10;
+    }
+  }
+</style>

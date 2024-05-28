@@ -1,0 +1,50 @@
+---
+import Image from "astro/components/Image.astro";
+import GlassEffect from "../../../public/assets/images/GlassEffect.svg";
+---
+
+<section class="h-screen">
+  <div class="flex gap-20 justify-center max-w-screen-2xl mx-auto mt-20">
+    <div
+      class="flex flex-col pixel-violet-container w-full px-10 pb-12 pt-10 z-10"
+    >
+      <div
+        class="relative flex w-full pixel-flat-pink-container px-10 pt-6 pb-4 mb-10 items-center justify-between"
+      >
+        <h1 class="text-4xl tracking-wide text-white z-10">About_Me.txt</h1>
+        <Image
+          src={GlassEffect}
+          alt={""}
+          class="absolute h-full top-0 right-28"
+        />
+        <Image
+          src={GlassEffect}
+          alt={""}
+          class="absolute h-full top-0 inset-0 left-[500px]"
+        />
+      </div>
+      <div class="retro-desktop-container px-10 py-8 mb-10 mt-2">
+        <p class="text-white text-3xl tracking-wide font-VT323">
+          I’m Darius, an ambitious Frontend Developer striving to become a
+          Fullstack one day. I’m passionate about web technologies, always
+          trying to keep up with the latest trends to improve my skills (though
+          it&apos;s not always easy). I believe that every challenge comes with
+          a learning curve. Taking lessons from every new project is what I find
+          most interesting about developers job.
+          <br />
+          <br />
+          Throughout my career so far, I&apos;ve had the opportunity to work on maintaining
+          websites and enhancing them with additional features. enhancing existing
+          project from sports betting industry and developing from scratch e-commerce
+          platform for wholesale network from the United States.
+          <br />
+          <br />
+          In breaks from coding, I like to read scientific research in the fields
+          of dietetics and motor skills, listen to old-school American hip-hop, go
+          running, and follow the latest news from the world of Formula 1 and the
+          NBA.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

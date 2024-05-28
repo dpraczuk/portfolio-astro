@@ -1,0 +1,93 @@
+---
+import Image from "astro/components/Image.astro";
+import ImagePlaceholder from "public/assets/images/img-placeholder.svg";
+import Arrow from "public/assets/images/Arrow.png";
+
+interface Project {
+  title: string;
+  projectStage: string;
+  technologyStack: string[];
+  shortDescription: string;
+  projectImages: {
+    id: string;
+    url: string;
+  };
+  description: string;
+  id: string;
+}
+
+const query = {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    query: `
+      {
+        projects(first: 10) {
+          projectStage
+          title
+          technologyStack
+          shortDescription
+          projectImages(first: 10) {
+            id
+            url
+          }
+          description
+          id
+        }
+      }`,
+  }),
+};
+
+const response = await fetch(import.meta.env.HYGRAPH_API_URL, query);
+const json = await response.json();
+const projects: Project[] = json.data.projects;
+---
+
+<div class="h-screen">
+  <div class="flex gap-20 justify-center max-w-screen-2xl mx-auto">
+    <div class="flex flex-col w-full z-10">
+      <h1 class="text-6xl tracking-wide text-white z-10 text-center mb-28">
+        Missions I've been on
+      </h1>
+      <div class="flex justify-between gap-40">
+        {
+          projects.map((project) => {
+            return (
+              <div class="flex flex-col pixel-violet-container h-[620px] w-4/12 text-white">
+                {project.projectImages[0] ? (
+                  <Image
+                    src={project.projectImages[0].url}
+                    alt={project.title}
+                    class="pixel-flat-pink-container aspect-video h-[200px]"
+                    inferSize={true}
+                  />
+                ) : (
+                  <div class="flex pixel-flat-pink-container aspect-video w-full items-center justify-center h-[190px]">
+                    <Image
+                      src={ImagePlaceholder}
+                      alt={"image placeholder"}
+                      class={"w-28 py-6"}
+                    />
+                  </div>
+                )}
+                <div class="flex flex-col mt-4 h-full">
+                  <h2 class="text-5xl">{project.title}</h2>
+                  <p class="text-3xl mt-5 font-VT323">
+                    {project.shortDescription}
+                  </p>
+                </div>
+                <div class="flex gap-3.5 py-7 justify-end">
+                  <div class="flex gap-3 cursor-pointer">
+                    <p class="text-3xl font-VT323">More</p>
+                    <Image src={Arrow} alt="" class={"h-9 w-9 -rotate-90"} />
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+      <button class="text-white text-end text-2xl mt-10">See more...</button>
+    </div>
+  </div>
+</div>

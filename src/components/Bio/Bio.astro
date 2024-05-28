@@ -1,0 +1,231 @@
+---
+import ProfilePicture from "../../../public/assets/images/profile-pic.png";
+import NextIcon from "public/assets/images/nextjs-pixel-sq.png";
+import GraphQLIcon from "public/assets/images/graphql-pixel.png";
+import ReactIcon from "public/assets/images/react-pixel-sq.png";
+import HTMLIcon from "public/assets/images/html-pixel-sq.png";
+import CSSIcon from "public/assets/images/css-pixel-sq.png";
+import TailwindIcon from "public/assets/images/tailwind-pixel-sq.png";
+import NodeIcon from "public/assets/images/nodejs-pixel-sq.png";
+import PlaywrightIcon from "public/assets/images/playwright-pixel-sq.png";
+import TypescriptIcon from "public/assets/images/typescript-pixel-sq.png";
+import JavascriptIcon from "public/assets/images/javascript-pixel-sq.png";
+import FirebaseIcon from "public/assets/images/firebase-logo-sq.png";
+import LinkedInIcon from "public/assets/images/linkedinpixel.png";
+import GithubIcon from "public/assets/images/github-pixel.png";
+import EmailIcon from "public/assets/images/email-icon-sq.png";
+
+const techStackData = [
+  {
+    id: 1,
+    alt: "nextjs",
+    iconSrc: NextIcon,
+    text: "Next.js",
+  },
+  {
+    id: 2,
+    alt: "react",
+    iconSrc: ReactIcon,
+    text: "React.js",
+  },
+  {
+    id: 3,
+    alt: "graphql",
+    iconSrc: GraphQLIcon,
+    text: "GraphQL",
+  },
+  {
+    id: 4,
+    alt: "tailwind",
+    iconSrc: TailwindIcon,
+    text: "Tailwind.css",
+  },
+  {
+    id: 5,
+    alt: "typescript",
+    iconSrc: TypescriptIcon,
+    text: "Typescript",
+  },
+  {
+    id: 6,
+    alt: "javascript",
+    iconSrc: JavascriptIcon,
+    text: "Javascript",
+  },
+  {
+    id: 7,
+    alt: "html",
+    iconSrc: HTMLIcon,
+    text: "HTML",
+  },
+  {
+    id: 8,
+    alt: "css",
+    iconSrc: CSSIcon,
+    text: "CSS",
+  },
+  {
+    id: 9,
+    alt: "firebase",
+    iconSrc: FirebaseIcon,
+    text: "Firebase",
+  },
+  {
+    id: 10,
+    alt: "playwright",
+    iconSrc: PlaywrightIcon,
+    text: "Playwright",
+  },
+];
+
+const currentStudyingData = [
+  {
+    id: 1,
+    alt: "node",
+    iconSrc: NodeIcon,
+    text: "Node.js",
+  },
+];
+
+const myContactsData = [
+  {
+    id: 1,
+    name: "Github",
+    icon: GithubIcon,
+    href: "https://github.com/dpraczuk",
+  },
+  {
+    id: 2,
+    name: "LinkedIn",
+    icon: LinkedInIcon,
+    href: "https://www.linkedin.com/in/dariusz-praczuk/",
+  },
+  {
+    id: 3,
+    name: "E-mail",
+    icon: EmailIcon,
+    href: "mailto:dariusz.praczuk@gmail.com",
+  },
+];
+---
+
+<section class="h-screen">
+  <div class="flex gap-20 justify-center max-w-screen-2xl mx-auto">
+    <div
+      class="pixel-violet-container w-3/12 h-[720px] gap-6 z-10 flex flex-col items-center"
+    >
+      <img
+        src={ProfilePicture.src}
+        alt={""}
+        class={"w-[200px] h-[200px] z-10 mt-12 mb-4"}
+      />
+      <div
+        class="flex flex-col gap-2 px-3 py-0 text-white w-[300px] text-[22px] tracking-wider"
+      >
+        <p class="text-violet-400">Name:</p>
+        <p>Dariusz Praczuk</p>
+        <p class="text-violet-400">Age:</p>
+        <p>28</p>
+        <p class="text-violet-400">My Contacts:</p>
+        <ul class="flex flex-col font-bold tracking-wider w-fit">
+          {
+            myContactsData.map((item) => {
+              return (
+                <li class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]">
+                  <a
+                    href={item.href}
+                    class="flex gap-3 items-center"
+                    target={item.name !== "E-mail" ? "_blank" : ""}
+                  >
+                    <img src={item.icon.src} alt={item.name} class={"w-8"} />
+                    <p class="mt-1">{item.name}</p>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+        <div class="flex justify-center">
+          <button
+            class="py-1 px-6 text-center pixel-flat-pink-container z-10 w-[200px] cursor-pointer"
+          >
+            <a
+              href="https://drive.google.com/file/d/1VAy3PAtfxkLpLMffb4_AmDHv7P65ZFmX/view?usp=sharing"
+              target="_blank"
+            >
+              Resume
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="pixel-violet-container w-9/12 h-[720px] z-10 text-white">
+      <div class="pixel-flat-pink-container font-gimenell mx-8 my-8">
+        <h1 class="text-2xl px-6 py-3 tracking-wide">
+          Competency_Presentation.txt
+        </h1>
+      </div>
+      <div
+        class="retro-desktop-container flex flex-col font-VT323 text-3xl px-6 py-2"
+      >
+        <div class="flex flex-row">
+          <div class="w-1/2">
+            <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+              My tech stack:
+            </h2>
+            <div class="flex gap-x-4 gap-y-6 mt-4 mb-10 flex-wrap w-[400px]">
+              {
+                techStackData.map((item) => {
+                  return (
+                    <div class="flex flex-col items-center">
+                      <img
+                        src={item.iconSrc.src}
+                        alt={item.alt}
+                        class={"w-14"}
+                        title={item.text}
+                      />
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+          <div class="w-1/2">
+            <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+              Currently learning:
+            </h2>
+            <div class="flex gap-x-4 gap-y-6 mt-4 mb-10 flex-wrap w-[400px]">
+              {
+                currentStudyingData.map((item) => {
+                  return (
+                    <div class="flex flex-col items-center">
+                      <img
+                        src={item.iconSrc.src}
+                        alt={item.alt}
+                        class={"w-14"}
+                        title={item.text}
+                      />
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+            Main Skills:
+          </h2>
+          <ul class="list-disc list-inside text-3xl my-3">
+            <li>English knowledge (B2/C1)</li>
+            <li>Teamwork</li>
+            <li>Fast Self-learning</li>
+            <li>Work Autonomy</li>
+            <li>Sense of Aesthetics</li>
+            <li>Strong Commitment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
