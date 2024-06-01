@@ -5,14 +5,16 @@ import MainHeader from "../components/MainHeader/MainHeader.astro";
 import BioSection from "../components/Bio/Bio.astro";
 import AboutSection from "../components/About/About.astro";
 import MyProjects from "../components/MyProjects/MyProjects.astro";
+import Contact from "../components/Contact/Contact.astro";
 ---
 
 <Layout title="Dariusz Praczuk - Frontend Developer">
   <main class="relative font-gimenell">
-    <StarsBackground className="h-[540vh] absolute" />
+    <StarsBackground client:load className="h-[5000px] absolute" />
     <MainHeader />
     <AboutSection />
-    <BioSection />s
+    <BioSection />
     <MyProjects />
+    <Contact />
   </main>
 </Layout>

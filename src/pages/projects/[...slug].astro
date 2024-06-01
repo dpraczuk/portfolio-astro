@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { StarsBackground } from "../../components/StarsBackground/StarsBackground";
+import { getProjectsList } from "../../api/ProjectsGetList";
+import { MaxWidthContainer } from "../../components/MaxWidthContainer/MaxWidthContainer";
+
+export async function getStaticPaths() {
+  const projects = await getProjectsList();
+
+  return projects.map(
+    ({
+      slug,
+      title,
+      projectStage,
+      technologyStack,
+      shortDescription,
+      projectImages,
+      description,
+    }) => {
+      return {
+        params: { slug },
+        props: {
+          title,
+          projectStage,
+          technologyStack,
+          shortDescription,
+          projectImages,
+          description,
+        },
+      };
+    }
+  );
+}
+
+const { title, projectStage, description, technologyStack } = Astro.props;
+---
+
+<Layout title={title}>
+  <main class="relative font-gimenell">
+    <StarsBackground
+      starsAmount={25}
+      client:load
+      className="h-[140vh] absolute"
+    />
+    <MaxWidthContainer>
+      <div class="text-white z-10 pt-40">
+        <h1 class="text-6xl">{title}</h1>
+        <div class="font-VT323 text-2xl flex gap-4 flex-col mt-10">
+          <p>Project stage: {projectStage}</p>
+          <div class="flex gap-3">
+            Technology stack: {
+              technologyStack.map((item) => {
+                return <p class="bg-slate-500 px-2.5 rounded-lg">{item}</p>;
+              })
+            }
+          </div>
+          <p>{description}</p>
+        </div>
+      </div>
+    </MaxWidthContainer>
+  </main>
+</Layout>
