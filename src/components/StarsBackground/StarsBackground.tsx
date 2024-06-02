@@ -33,7 +33,7 @@ export const StarsBackground = ({
     const placeholdersArray = Array(starsAmount).fill("star_placeholder");
 
     for (let i = 0; i < containers.length; i++) {
-      const starsArray = placeholdersArray.map((starPlacholder, index) =>
+      const starsArray = placeholdersArray.map(() =>
         createStar()
       );
       containers[i]!.append(...starsArray);

@@ -28,39 +28,6 @@ const { title } = Astro.props;
     />
   </head>
   <body class="relative">
-    <nav
-      class="absolute flex text-white z-20 font-gimenell text-xl tracking-wider mt-10 w-full"
-    >
-      <div class="flex items-center max-w-screen-xl w-full mx-auto justify-end">
-        <ul class="flex gap-6 z-10">
-          <li
-            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
-          >
-            <a href="/"> 01. Home </a>
-          </li>
-          <li
-            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
-          >
-            02. About me
-          </li>
-          <li
-            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
-          >
-            03. Presentation
-          </li>
-          <li
-            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
-          >
-            04. Missions
-          </li>
-          <li
-            class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]"
-          >
-            05. Contact
-          </li>
-        </ul>
-      </div>
-    </nav>
     <slot class="py-[100px]" />
     <footer
       class="relative z-10 mt-10 text-2xl flex text-white font-VT323 justify-center pt-10"

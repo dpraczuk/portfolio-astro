@@ -1,8 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { StarsBackground } from "../../components/StarsBackground/StarsBackground";
 import { getProjectsList } from "../../api/ProjectsGetList";
-import { MaxWidthContainer } from "../../components/MaxWidthContainer/MaxWidthContainer";
+import {Image} from "astro:assets";
+import Arrow from "public/assets/images/Arrow.png"
+import {StarsBackground} from "../../components/StarsBackground/StarsBackground";
+import {MaxWidthContainer} from "../../components/MaxWidthContainer/MaxWidthContainer";
 
 export async function getStaticPaths() {
   const projects = await getProjectsList();
@@ -32,7 +34,7 @@ export async function getStaticPaths() {
   );
 }
 
-const { title, projectStage, description, technologyStack } = Astro.props;
+const { title, projectStage, description, technologyStack, projectImages } = Astro.props;
 ---
 
 <Layout title={title}>
@@ -40,11 +42,15 @@ const { title, projectStage, description, technologyStack } = Astro.props;
     <StarsBackground
       starsAmount={25}
       client:load
-      className="h-[140vh] absolute"
+      className="min-h-screen absolute"
     />
     <MaxWidthContainer>
-      <div class="text-white z-10 pt-40">
-        <h1 class="text-6xl">{title}</h1>
+      <div class="text-white z-10 pt-10 w-full">
+            <a href="/" class="flex items-center text-3xl font-VT323 gap-3.5 hover:text-neonBlue hover:[text-shadow:_2px_2px_0_rgb(250_0_255_/_200%)]">
+                <Image src={Arrow} alt="" class="w-8 rotate-90"/>
+                <p class="mb-0.5">Homepage</p>
+            </a>
+        <h1 class="text-7xl text-neonBlue tracking-wide [text-shadow:_6px_5px_0_rgb(250_0_255_/_200%)] mt-5 text-center">{title}</h1>
         <div class="font-VT323 text-2xl flex gap-4 flex-col mt-10">
           <p>Project stage: {projectStage}</p>
           <div class="flex gap-3">
@@ -54,7 +60,13 @@ const { title, projectStage, description, technologyStack } = Astro.props;
               })
             }
           </div>
-          <p>{description}</p>
+            <div class="flex items-center justify-center">
+                {projectImages.map(image => {
+                    return <Image src={image.url} alt="" height="500" width="500" class="pixel-flat-pink-container aspect-video"
+                    />
+                })}
+            </div>
+          <p class="text-3xl">{description}</p>
         </div>
       </div>
     </MaxWidthContainer>
