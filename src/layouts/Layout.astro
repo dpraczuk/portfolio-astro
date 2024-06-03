@@ -30,7 +30,7 @@ const { title } = Astro.props;
   <body class="relative">
     <slot class="py-[100px]" />
     <footer
-      class="relative z-10 mt-10 text-2xl flex text-white font-VT323 justify-center pt-10"
+      class="relative z-10 pt-10 text-2xl bg-[#120a30] flex text-white font-VT323 justify-center"
     >
       © 2024 Dariusz Praczuk. All rights reserved
     </footer>
@@ -62,7 +62,6 @@ const { title } = Astro.props;
       }
 
       .pixel-violet-container {
-        padding: 0 40px;
         background-color: rgb(129, 18, 247, 0.1);
         box-shadow:
           -10px 0 0 0 rgb(162, 139, 255),
@@ -72,7 +71,6 @@ const { title } = Astro.props;
       }
 
       .pixel-flat-pink-container {
-        margin: 40px 0;
         background-color: rgb(191, 28, 255, 0.3);
         box-shadow:
           -9px 0 0 0 rgb(222, 143, 254),
@@ -83,7 +81,6 @@ const { title } = Astro.props;
 
       .retro-desktop-container {
         background-color: black;
-        width: 100%;
         box-shadow:
           -9px 0 0 0 rgb(171, 171, 171),
           9px 0 0 0 rgb(171, 171, 171),

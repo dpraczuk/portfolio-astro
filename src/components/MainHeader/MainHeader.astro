@@ -4,20 +4,24 @@ import Astronaut from "../../../public/assets/images/astronaut.png";
 import Arrow from "../../../public/assets/images/Arrow.png";
 ---
 
-<header class="relative h-screen">
-  <div class="flex justify-center items-center w-full absolute z-20 top-48">
+<header class="relative min-h-screen">
+  <div class="flex justify-center items-center w-full h-full lg:h-auto pt-40 lg:pt-0 lg:absolute z-20 lg:top-36">
     <Image
       src={Astronaut}
-      class={"animate-float h-[640px] w-[640px] z-10 left-[10%] top-[20%]"}
+      class={"animate-float hidden lg:block h-[520px] w-[520px] xl:h-[560px] xl:w-[560px]" +
+          " 2xl:h-[640px]" +
+          " 2xl:w-[640px] z-10" +
+          " left-[10%]" +
+          " top-[20%]"}
       alt="astronaut"
     />
-    <div class="z-10 font-gimenell">
+    <div class="z-10 font-gimenell px-10 lg:px-0">
       <p
-        class="text-[64px] text-neonBlue tracking-wide [text-shadow:_6px_5px_0_rgb(250_0_255_/_200%)] mb-2 overflow-hidden"
+        class="text-6xl lg:text-5xl xl:text-[64px] text-neonBlue tracking-wide [text-shadow:_6px_5px_0_rgb(250_0_255_/_200%)] mb-2 overflow-hidden"
       >
         Hi, my name is Darek
       </p>
-      <p class="text-white tracking-wider text-2xl w-[500px]">
+      <p class="text-white tracking-wider text-xl mt-4 xl:mt-0 xl:text-2xl lg:w-[500px]">
         I am a star pilot (and frontend developer) who isn't afraid of any
         challenge.
       </p>

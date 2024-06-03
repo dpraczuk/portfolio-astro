@@ -3,28 +3,28 @@ import Image from "astro/components/Image.astro";
 import GlassEffect from "../../../public/assets/images/GlassEffect.svg";
 ---
 
-<section class="h-screen">
+<section class="min-h-screen pb-20 px-6">
   <div class="flex gap-20 justify-center max-w-screen-2xl mx-auto mt-20">
     <div
-      class="flex flex-col pixel-violet-container w-full px-10 pb-12 pt-10 z-10"
+      class="flex flex-col pixel-violet-container w-full px-6 lg:px-10 pb-6 lg:pb-14 pt-6 lg:pt-10 z-10"
     >
       <div
-        class="relative flex w-full pixel-flat-pink-container px-10 pt-6 pb-4 mb-10 items-center justify-between"
+        class="relative flex w-full pixel-flat-pink-container px-5 lg:px-10 pt-3 pb-2 sm:pt-6 sm:pb-4 mb-2 sm:mb-10 items-center justify-between"
       >
-        <h1 class="text-4xl tracking-wide text-white z-10">About_Me.txt</h1>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl tracking-wide text-white z-10">About_Me.txt</h1>
         <Image
           src={GlassEffect}
           alt={""}
-          class="absolute h-full top-0 right-28"
+          class="hidden lg:block absolute h-full top-0"
         />
         <Image
           src={GlassEffect}
           alt={""}
-          class="absolute h-full top-0 inset-0 left-[500px]"
+          class="hidden lg:block absolute h-full top-0 right-1/4"
         />
       </div>
-      <div class="retro-desktop-container px-10 py-8 mb-10 mt-2">
-        <p class="text-white text-3xl tracking-wide font-VT323">
+      <div class="retro-desktop-container px-6 lg:px-10 py-4 lg:py-8 mt-6 sm:mt-0">
+        <p class="text-white text-xl sm:text-2xl lg:text-3xl tracking-wide font-VT323">
           I’m Darius, an ambitious Frontend Developer striving to become a
           Fullstack one day. I’m passionate about web technologies, always
           trying to keep up with the latest trends to improve my skills (though

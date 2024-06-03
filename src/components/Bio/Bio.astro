@@ -109,45 +109,49 @@ const myContactsData = [
 ];
 ---
 
-<section class="h-screen">
-  <div class="flex gap-20 justify-center max-w-screen-2xl mx-auto">
+<section class="min-h-screen">
+  <div class="flex 2xl:flex-row flex-col gap-10 2xl:gap-20 justify-center max-w-screen-2xl mx-6 2xl:mx-auto">
     <div
-      class="pixel-violet-container w-3/12 h-[720px] gap-6 z-10 flex flex-col items-center"
+      class="pixel-violet-container w-full px-10 sm:px-0 2xl:w-3/12 gap-6 z-10 flex flex-col md:flex-row 2xl:flex-col items-center"
     >
       <img
         src={ProfilePicture.src}
         alt={""}
-        class={"w-[200px] h-[200px] z-10 mt-12 mb-4"}
+        class={"w-[200px] h-[200px] z-10 my-10 mx-10 2xl:mt-12 2xl:mb-4 2xl:mx-0"}
       />
       <div
-        class="flex flex-col gap-2 px-3 py-0 text-white w-[300px] text-[22px] tracking-wider"
+        class="flex 2xl:flex-col gap-2 px-3 py-0 text-white 2xl:w-[300px] text-[22px] tracking-wider justify-around lg:justify-between w-full flex-wrap"
       >
-        <p class="text-violet-400">Name:</p>
-        <p>Dariusz Praczuk</p>
-        <p class="text-violet-400">Age:</p>
-        <p>28</p>
-        <p class="text-violet-400">My Contacts:</p>
-        <ul class="flex flex-col font-bold tracking-wider w-fit">
-          {
-            myContactsData.map((item) => {
-              return (
-                <li class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]">
-                  <a
-                    href={item.href}
-                    class="flex gap-3 items-center"
-                    target={item.name !== "E-mail" ? "_blank" : ""}
-                  >
-                    <img src={item.icon.src} alt={item.name} class={"w-8"} />
-                    <p class="mt-1">{item.name}</p>
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-        <div class="flex justify-center">
+        <div class="w-full sm:w-auto lg:w-1/3 2xl:w-full">
+           <p class="text-violet-400">Name:</p>
+           <p>Dariusz Praczuk</p>
+           <p class="text-violet-400">Age:</p>
+           <p>28</p>
+        </div>
+        <div class="w-full sm:w-auto lg:w-1/3 2xl:w-full">
+           <p class="text-violet-400">My Contacts:</p>
+           <ul class="flex flex-col font-bold tracking-wider w-fit">
+                  {
+                      myContactsData.map((item) => {
+                          return (
+                                  <li class="cursor-pointer duration-100 hover:text-neonBlue hover:[text-shadow:_2px_3px_0_rgb(250_0_255_/_200%)]">
+                                      <a
+                                              href={item.href}
+                                              class="flex gap-3 items-center"
+                                              target={item.name !== "E-mail" ? "_blank" : ""}
+                                      >
+                                          <img src={item.icon.src} alt={item.name} class={"w-8"} />
+                                          <p class="mt-1">{item.name}</p>
+                                      </a>
+                                  </li>
+                          );
+                      })
+                  }
+           </ul>
+        </div>
+        <div class="flex justify-center items-center w-full lg:w-auto mb-10 sm:mb-0 lg:pr-10 2xl:pr-0 mx-auto 2xl:mx-0">
           <button
-            class="py-1 px-6 text-center pixel-flat-pink-container z-10 w-[200px] cursor-pointer"
+            class="py-1 px-6 mt-8 h-fit text-center pixel-flat-pink-container z-10 w-[200px] cursor-pointer"
           >
             <a
               href="https://drive.google.com/file/d/1VAy3PAtfxkLpLMffb4_AmDHv7P65ZFmX/view?usp=sharing"
@@ -159,21 +163,21 @@ const myContactsData = [
         </div>
       </div>
     </div>
-    <div class="pixel-violet-container w-9/12 h-[720px] z-10 text-white">
+    <div class="pixel-violet-container w-full 2xl:w-9/12 z-10 text-white">
       <div class="pixel-flat-pink-container font-gimenell mx-8 my-8">
         <h1 class="text-2xl px-6 py-3 tracking-wide">
-          Competency_Presentation.txt
+          Presentation.txt
         </h1>
       </div>
       <div
-        class="retro-desktop-container flex flex-col font-VT323 text-3xl px-6 py-2"
+        class="retro-desktop-container flex flex-col w-12/12 font-VT323 text-3xl px-6 my-10 mx-8 py-2"
       >
-        <div class="flex flex-row">
-          <div class="w-1/2">
-            <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+        <div class="flex flex-col lg:flex-row">
+          <div class="w-full lg:w-1/2">
+            <h2 class="text-2xl sm:text-3xl mt-4 font-gimenell tracking-wide">
               My tech stack:
             </h2>
-            <div class="flex gap-x-4 gap-y-6 mt-4 mb-10 flex-wrap w-[400px]">
+            <div class="flex gap-x-4 gap-y-6 mt-4 mb-10 flex-wrap sm:w-[400px]">
               {
                 techStackData.map((item) => {
                   return (
@@ -181,7 +185,7 @@ const myContactsData = [
                       <img
                         src={item.iconSrc.src}
                         alt={item.alt}
-                        class={"w-14"}
+                        class={"w-8 sm:w-14"}
                         title={item.text}
                       />
                     </div>
@@ -190,8 +194,8 @@ const myContactsData = [
               }
             </div>
           </div>
-          <div class="w-1/2">
-            <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+          <div class="w-full lg:w-1/2">
+            <h2 class="text-2xl sm:text-3xl mt-4 font-gimenell tracking-wide">
               Currently learning:
             </h2>
             <div class="flex gap-x-4 gap-y-6 mt-4 mb-10 flex-wrap w-[400px]">
@@ -202,7 +206,7 @@ const myContactsData = [
                       <img
                         src={item.iconSrc.src}
                         alt={item.alt}
-                        class={"w-14"}
+                        class={"w-8 sm:w-14"}
                         title={item.text}
                       />
                     </div>
@@ -213,10 +217,10 @@ const myContactsData = [
           </div>
         </div>
         <div class="flex flex-col">
-          <h2 class="text-[28px] mt-4 font-gimenell tracking-wide">
+          <h2 class="text-2xl sm:text-3xl mt-4 font-gimenell tracking-wide">
             Main Skills:
           </h2>
-          <ul class="list-disc list-inside text-3xl my-3">
+          <ul class="list-disc list-inside text-2xl sm:text-3xl my-3">
             <li>English knowledge (B2/C1)</li>
             <li>Teamwork</li>
             <li>Fast Self-learning</li>

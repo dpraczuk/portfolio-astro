@@ -14,13 +14,13 @@ module.exports = {
       keyframes: {
         float: {
           "0%": {
-            transform: "translate(0px, 0px)",
+            transform: "translate(0px, 10px)",
           },
           "50%": {
-            transform: "translate(0px, -40px)",
+            transform: "translate(0px, -50px)",
           },
           "100%": {
-            transform: "translate(0px, 0px)",
+            transform: "translate(0px, 10px)",
           },
         },
         fastFloat: {
@@ -42,10 +42,6 @@ module.exports = {
         typing: {
           "0%": { width: "0" },
           "100%": { width: "100%" },
-        },
-        "blink-caret": {
-          "from, to": { "border-color": "transparent" },
-          "50%": { "border-color": "orange" },
         },
       },
       animation: {

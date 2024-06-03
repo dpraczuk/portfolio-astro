@@ -47,7 +47,7 @@ export const StarsBackground = ({
   return (
     <div
       className={cn(
-        "starsContainer min-h-screen flex relative w-full overflow-hidden z-50",
+        "starsContainer min-h-screen lg:flex hidden relative w-full overflow-hidden z-50",
         className
       )}
     >
