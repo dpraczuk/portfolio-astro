@@ -26,7 +26,7 @@ export const ProjectsCarousel = ({projects}:{projects: IProject[]}) => {
         <div ref={ref} className="keen-slider flex justify-between py-10 sm:p-10 pr-20 z-50">
             {projects.map(project => {
                 return <div
-                    className="keen-slider__slide pixel-violet-container flex flex-col h-[520px] sm:h-[620px] w-4/12 text-white px-10 pt-10">
+                    className="keen-slider__slide pixel-violet-container flex flex-col h-[520px] sm:h-[620px] w-4/12 text-white px-7 sm:px-10 pt-10">
                     {project.projectImages[0] ? (
                         <img
                             src={project.projectImages[0].url}
@@ -43,8 +43,8 @@ export const ProjectsCarousel = ({projects}:{projects: IProject[]}) => {
                         </div>
                     )}
                     <div className="flex flex-col mt-4 h-full pt-7">
-                        <h2 className="text-5xl">{project.title}</h2>
-                        <p className="text-3xl mt-5 font-VT323">
+                        <h2 className="text-4xl sm:text-5xl">{project.title}</h2>
+                        <p className="text-2xl sm:text-3xl mt-5 font-VT323">
                             {project.shortDescription}
                         </p>
                     </div>

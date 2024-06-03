@@ -5,19 +5,19 @@ import Astronaut from "public/assets/images/astronaut-contact.png";
 ---
 
 <section>
-  <MaxWidthContainer className="items-center pl-16 justify-around">
-    <div class="flex flex-col z-10 gap-10">
-      <h1 class="z-10 text-white text-6xl w-full">Want to contact with me?</h1>
-      <p class="text-white text-4xl w-[500px] font-VT323">
+  <MaxWidthContainer className="items-center px-10 sm:px-0 sm:pl-16 justify-around min-h-[600px] sm:min-h-[800px]">
+    <div class="flex flex-col z-20 gap-10">
+      <h1 class="z-10 text-white text-4xl sm:text-5xl md:text-6xl w-full">Want to contact with me?</h1>
+      <p class="text-white text-2xl sm:text-3xl md:text-4xl sm:w-[500px] font-VT323">
         If you want to take me on some exciting adventure, don't be afraid and
         let me know!
       </p>
       <button
-        class="py-2 pixel-flat-pink-container px-6 text-white text-2xl z-10 cursor-pointer w-[300px]"
+        class="py-2 pixel-flat-pink-container px-6 text-white text-xl sm:text-2xl z-10 cursor-pointer w-[240px] sm:w-[300px]"
         ><a href={"mailto:dariusz.praczuk@gmail.com"}>Send me a message</a
         ></button
       >
     </div>
-    <Image src={Astronaut} width={560} alt="" class={"z-10 mr-20"} />
+    <Image src={Astronaut} width={560} alt="" class={"hidden z-10 lg:block z-10 mr-0 2xl:mr-20"} />
   </MaxWidthContainer>
 </section>
