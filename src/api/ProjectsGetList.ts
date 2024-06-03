@@ -23,6 +23,11 @@ export const getProjectsList = async () => {
                   }
                   description
                   id
+                  links(first:5) {
+                    id
+                    url
+                    linkName
+                  } 
                 }
               }`,
     }),

@@ -10,4 +10,8 @@ export interface IProject {
   }[];
   description: string;
   id: string;
+  links: {
+    url: string,
+    linkName: string
+  }[]
 }

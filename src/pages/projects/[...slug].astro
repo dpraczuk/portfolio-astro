@@ -18,6 +18,7 @@ export async function getStaticPaths() {
       shortDescription,
       projectImages,
       description,
+      links
     }) => {
       return {
         params: { slug },
@@ -28,17 +29,18 @@ export async function getStaticPaths() {
           shortDescription,
           projectImages,
           description,
+          links
         },
       };
     }
   );
 }
 
-const { title, projectStage, description, technologyStack, projectImages } = Astro.props;
+const { title, projectStage, description, technologyStack, projectImages, links } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="relative font-gimenell">
+  <main class="relative font-gimenell bg-[#120a30] px-10 min-h-screen">
     <StarsBackground
       starsAmount={25}
       client:load
@@ -50,23 +52,28 @@ const { title, projectStage, description, technologyStack, projectImages } = Ast
                 <Image src={Arrow} alt="" class="w-8 rotate-90"/>
                 <p class="mb-0.5">Homepage</p>
             </a>
-        <h1 class="text-7xl text-neonBlue tracking-wide [text-shadow:_6px_5px_0_rgb(250_0_255_/_200%)] mt-5 text-center">{title}</h1>
+        <h1 class="text-5xl py-4 sm:py-0 md:text-6xl lg:text-7xl text-neonBlue tracking-wide [text-shadow:_6px_5px_0_rgb(250_0_255_/_200%)] mt-5 text-center">{title}</h1>
         <div class="font-VT323 text-2xl flex gap-4 flex-col mt-10">
-          <p>Project stage: {projectStage}</p>
-          <div class="flex gap-3">
+          <p class="text-xl md:text-2xl">Project stage: {projectStage}</p>
+          <div class="flex gap-3 flex-wrap text-xl md:text-2xl">
             Technology stack: {
               technologyStack.map((item) => {
                 return <p class="bg-slate-500 px-2.5 rounded-lg">{item}</p>;
               })
             }
           </div>
-            <div class="flex items-center justify-center py-10">
-                {projectImages.map(image => {
-                    return <Image src={image.url} alt="" height="500" width="500" class="pixel-flat-pink-container aspect-video"
-                    />
-                })}
-            </div>
-          <p class="text-3xl">{description}</p>
+          <div class="flex gap-3 flex-wrap text-xl md:text-2xl">
+              Links:
+              {links.map(link => {
+                  return <a href={link.url} target="_blank" class="bg-fuchsia-500 px-2.5 rounded-lg">{link.linkName}</a>
+              })}
+          </div>
+          <div class="flex items-center justify-center py-10">
+              {projectImages.map(image => {
+                  return <Image src={image.url} alt="" height="500" width="500" class="pixel-flat-pink-container aspect-video"/>
+              })}
+          </div>
+          <p class="text-xl sm:text-2xl md:text-3xl">{description}</p>
         </div>
       </div>
     </MaxWidthContainer>
