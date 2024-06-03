@@ -1,88 +1,31 @@
 ---
-import Image from "astro/components/Image.astro";
-import ImagePlaceholder from "public/assets/images/img-placeholder.svg";
-import Arrow from "public/assets/images/Arrow.png";
 import { getProjectsList } from "../../api/ProjectsGetList";
 import { MaxWidthContainer } from "../MaxWidthContainer/MaxWidthContainer";
-import BiedronkaLogo from "public/assets/images/biedronka-logo.png";
-import VectraLogo from "public/assets/images/vectra-logo.png";
-import MercasoLogo from "public/assets/images/mercaso.webp";
+import {ProjectsCarousel} from "../ProjectsCarousel/ProjectsCarousel";
+import {CompaniesCarousel} from "../CompaniesCarousel/CompaniesCarousel";
 
 const projects = await getProjectsList();
 ---
 
 <>
-  <section>
+  <section class="min-h-screen">
     <MaxWidthContainer className="gap-20">
       <div class="flex flex-col w-full z-10">
-        <h1 class="text-6xl tracking-wide text-white text-center mb-28">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl px-10  tracking-wide text-white text-center mb-10 sm:mb-28">
           Missions I've been on
         </h1>
-        <div class="flex justify-between gap-28">
-          {
-            projects.map((project) => {
-              return (
-                <div class="flex flex-col pixel-violet-container h-[620px] w-4/12 text-white px-10 pt-10">
-                  {project.projectImages[0] ? (
-                    <Image
-                      src={project.projectImages[0].url}
-                      alt={project.title}
-                      class="pixel-flat-pink-container aspect-video h-[200px]"
-                      inferSize={true}
-                    />
-                  ) : (
-                    <div class="flex pixel-flat-pink-container w-full items-center justify-center">
-                      <Image
-                        src={ImagePlaceholder}
-                        alt={"image placeholder"}
-                        class={"w-28 h-[200px]"}
-                      />
-                    </div>
-                  )}
-                  <div class="flex flex-col mt-4 h-full pt-7">
-                    <h2 class="text-5xl">{project.title}</h2>
-                    <p class="text-3xl mt-5 font-VT323">
-                      {project.shortDescription}
-                    </p>
-                  </div>
-                  <div class="flex gap-3.5 py-7 justify-end">
-                    <a
-                      href={`/projects/${project.slug}`}
-                      class="flex gap-3 cursor-pointer"
-                    >
-                      <p class="text-3xl font-VT323">More</p>
-                      <Image src={Arrow} alt="" class={"h-9 w-9 -rotate-90"} />
-                    </a>
-                  </div>
-                </div>
-              );
-            })
-          }
-        </div>
+        {projects &&
+          <ProjectsCarousel client:load projects={projects}/>
+        }
       </div>
     </MaxWidthContainer>
   </section>
   <section>
-    <MaxWidthContainer className="flex-col gap-0">
-      <h1 class="text-6xl tracking-wide text-white text-center mt-32 z-10">
+    <MaxWidthContainer className="flex-col">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl tracking-wide text-white text-center mt-32 z-10">
         I also worked with
       </h1>
-      <div class="flex z-10 justify-center items-center gap-20">
-        <a href="https://www.biedronka.pl">
-          <Image src={BiedronkaLogo} alt={""} class={"w-[400px] h-[400px]"} />
-        </a>
-        <a href="https://www.mercaso.com">
-          <Image
-            src={MercasoLogo}
-            alt={""}
-            width={300}
-            class={"w-[100px] h-[100px] rounded-lg"}
-          />
-        </a>
-        <a href="https://www.vectra.pl/">
-          <Image src={VectraLogo} alt={""} class={"w-[400px] h-[120px]"} />
-        </a>
-      </div>
+      <CompaniesCarousel client:load />
     </MaxWidthContainer>
   </section>
 </>
