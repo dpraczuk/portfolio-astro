@@ -1,4 +1,4 @@
-import type { IProject } from "@/types/types";
+import type { Project } from "@/types/types";
 
 export const getProjectsList = async () => {
   if (!import.meta.env.HYGRAPH_API_URL) {
@@ -13,6 +13,8 @@ export const getProjectsList = async () => {
               {
                 projects(first: 10) {
                   slug
+                  company
+                  order
                   projectStage
                   title
                   technologyStack
@@ -35,7 +37,7 @@ export const getProjectsList = async () => {
 
   const response = await fetch(import.meta.env.HYGRAPH_API_URL, query);
   const json = await response.json();
-  const projects: IProject[] = json.data.projects;
+  const projects: Project[] = json.data.projects;
 
   return projects;
 };

@@ -1,17 +1,25 @@
-export interface IProject {
+interface Project {
   title: string;
   slug: string;
+  company?: string;
+  order: number;
   projectStage: string;
   technologyStack: string[];
   shortDescription: string;
-  projectImages: {
-    id: string;
-    url: string;
-  }[];
+  projectImages: ProjectImage[];
   description: string;
   id: string;
-  links: {
-    url: string,
-    linkName: string
-  }[]
+  links: ProjectLink[];
 }
+
+interface ProjectLink {
+  url: string;
+  linkName: string;
+}
+
+interface ProjectImage {
+  id: string;
+  url: string;
+}
+
+export type { Project, ProjectLink, ProjectImage };

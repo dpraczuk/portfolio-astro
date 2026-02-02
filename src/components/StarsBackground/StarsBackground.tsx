@@ -10,6 +10,14 @@ export const StarsBackground = ({
   className?: string;
   starsAmount?: number;
 }) => {
+  function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  }
+
+  if (isMobileDevice()) {
+    starsAmount = 75;
+  }
+
   function generateRandomPercent(max = 100) {
     const randomInteger = Math.floor(Math.random() * (max + 1));
     return `${randomInteger}%`;
@@ -33,9 +41,7 @@ export const StarsBackground = ({
     const placeholdersArray = Array(starsAmount).fill("star_placeholder");
 
     for (let i = 0; i < containers.length; i++) {
-      const starsArray = placeholdersArray.map(() =>
-        createStar()
-      );
+      const starsArray = placeholdersArray.map(() => createStar());
       containers[i]!.append(...starsArray);
     }
   }
@@ -47,8 +53,8 @@ export const StarsBackground = ({
   return (
     <div
       className={cn(
-        "starsContainer min-h-screen lg:flex hidden relative w-full overflow-hidden z-50",
-        className
+        "starsContainer lg:flex relative w-full overflow-hidden z-50",
+        className,
       )}
     >
       {children}

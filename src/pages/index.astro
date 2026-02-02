@@ -6,15 +6,17 @@ import BioSection from "../components/Bio/Bio.astro";
 import AboutSection from "../components/About/About.astro";
 import MyProjects from "../components/MyProjects/MyProjects.astro";
 import Contact from "../components/Contact/Contact.astro";
+import { Footer } from "../components/Footer/Footer";
 ---
 
 <Layout title="Dariusz Praczuk - Frontend Developer">
-  <main class="relative font-gimenell bg-[#120a30] lg:bg-transparent">
-    <StarsBackground client:load className="lg:h-[5550px] 2xl:h-[5200px] absolute" />
+  <main class="relative font-gimenell lg:bg-transparent">
+    <StarsBackground client:load className="min-h-[100%] absolute" />
     <MainHeader />
     <AboutSection />
     <BioSection />
     <MyProjects />
     <Contact />
+    <Footer />
   </main>
 </Layout>
