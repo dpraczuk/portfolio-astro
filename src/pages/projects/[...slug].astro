@@ -45,13 +45,17 @@ const {
   technologyStack,
   projectImages,
   links,
-  slug,
 } = Astro.props as Project;
 ---
 
 <Layout title={title}>
-  <main class="relative font-gimenell w-full min-h-screen">
-    <StarsBackground client:load starsAmount={50} className="absolute h-full" />
+  <main class="relative font-gimenell w-full min-h-screen flex justify-center">
+    <StarsBackground
+      client:load
+      amountDesktop={50}
+      amountMobile={20}
+      className="absolute h-full"
+    />
     <MaxWidthContainer className="mx-5 md:mx-10 pb-10">
       <div class="text-white z-10 pt-7 md:pt-10 w-full">
         <a

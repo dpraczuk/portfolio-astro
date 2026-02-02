@@ -4,51 +4,47 @@ import React, { useEffect } from "react";
 export const StarsBackground = ({
   children,
   className,
-  starsAmount = 150,
+  amountDesktop = 150,
+  amountMobile = 50,
 }: {
   children?: React.ReactNode;
   className?: string;
-  starsAmount?: number;
+  amountDesktop?: number;
+  amountMobile?: number;
 }) => {
-  function isMobileDevice() {
-    return /Mobi|Android/i.test(navigator.userAgent);
-  }
-
-  if (isMobileDevice()) {
-    starsAmount = 75;
-  }
-
-  function generateRandomPercent(max = 100) {
+  const generateRandomPercent = (max = 100) => {
     const randomInteger = Math.floor(Math.random() * (max + 1));
     return `${randomInteger}%`;
-  }
-  function generateRandomDelay(interval = 3) {
+  };
+
+  const generateRandomDelay = (interval = 3) => {
     const randomInteger = Math.random() * (interval + 1);
     return `${randomInteger}s`;
-  }
+  };
 
-  function createStar() {
+  const createStar = () => {
     const star = document.createElement("div");
     star.classList.add("star");
     star.style.top = generateRandomPercent();
     star.style.left = generateRandomPercent();
     star.style.animationDelay = generateRandomDelay();
     return star;
-  }
+  };
 
-  function renderStars() {
+  useEffect(() => {
+    const isMobileDevice = () => {
+      return /Mobi|Android/i.test(navigator.userAgent);
+    };
+
+    const actualStarsAmount = isMobileDevice() ? amountMobile : amountDesktop;
     const containers = document.getElementsByClassName("starsContainer");
-    const placeholdersArray = Array(starsAmount).fill("star_placeholder");
+    const placeholdersArray = Array(actualStarsAmount).fill("star_placeholder");
 
     for (let i = 0; i < containers.length; i++) {
       const starsArray = placeholdersArray.map(() => createStar());
       containers[i]!.append(...starsArray);
     }
-  }
-
-  useEffect(() => {
-    renderStars();
-  }, []);
+  }, [amountDesktop, amountMobile]);
 
   return (
     <div
