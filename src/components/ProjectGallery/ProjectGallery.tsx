@@ -40,7 +40,7 @@ export const ProjectGallery = ({
             alt=""
             height="600"
             width="900"
-            className="pixel-flat-pink-container aspect-video"
+            className="pixel-flat-pink-container aspect-video object-cover object-top"
           />
         )}
       </div>

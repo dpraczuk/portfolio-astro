@@ -85,8 +85,63 @@ const { title } = Astro.props;
       }
 
       .slider-wrap {
+        position: relative;
         box-sizing: border-box;
         overflow: hidden;
+      }
+
+      .slider-wrap::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background: linear-gradient(
+          to left,
+          #120a30 0%,
+          rgba(18, 10, 48, 0) 100%
+        );
+
+        -webkit-mask-image: linear-gradient(
+          to left,
+          black 0%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to left, black 0%, transparent 100%);
+      }
+
+      .slider-wrap::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 60;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background: linear-gradient(
+          to right,
+          #120a30 0%,
+          rgba(18, 10, 48, 0) 100%
+        );
+
+        -webkit-mask-image: linear-gradient(
+          to right,
+          black 0%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to right, black 0%, transparent 100%);
       }
 
       .slider-wrap .keen-slider {
