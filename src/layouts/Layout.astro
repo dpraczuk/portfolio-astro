@@ -29,42 +29,37 @@ const { title } = Astro.props;
   </head>
   <body class="relative">
     <slot class="py-[100px]" />
-    <footer
-      class="relative z-10 pt-10 px-10 pb-4 text-center text-xl sm:text-2xl bg-[#120a30] flex text-white font-VT323 justify-center"
-    >
-      © 2024 Dariusz Praczuk. All rights reserved
-    </footer>
 
     <style is:global>
       html {
         overflow-x: hidden;
       }
       .keen-slider:not([data-keen-slider-disabled]) {
-          align-content: flex-start;
-          display: flex;
-          overflow: hidden;
-          position: relative;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-          -webkit-touch-callout: none;
-          -khtml-user-select: none;
-          touch-action: pan-y;
-          -webkit-tap-highlight-color: transparent;
-          width: 100%;
+        align-content: flex-start;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+        width: 100%;
       }
       .keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide {
-          position: relative;
-          overflow: hidden;
-          width: 100%;
-          min-height: 100%;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        min-height: 100%;
       }
       .keen-slider:not([data-keen-slider-disabled])[data-keen-slider-reverse] {
-          flex-direction: row-reverse;
+        flex-direction: row-reverse;
       }
       .keen-slider:not([data-keen-slider-disabled])[data-keen-slider-v] {
-          flex-wrap: wrap;
+        flex-wrap: wrap;
       }
 
       .starsContainer {
@@ -89,31 +84,40 @@ const { title } = Astro.props;
         z-index: 10;
       }
 
+      .slider-wrap {
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .slider-wrap .keen-slider {
+        overflow: visible;
+      }
+
       .pixel-violet-container {
         background-color: rgb(129, 18, 247, 0.1);
         box-shadow:
-          -10px 0 0 0 rgb(162, 139, 255),
-          10px 0 0 0 rgb(129, 18, 247),
-          0 -10px 0 0 rgb(162, 139, 255),
-          0 10px 0 0 rgb(129, 18, 247);
+          -9px 0 0 0 rgb(162, 139, 255),
+          9px 0 0 0 rgb(129, 18, 247),
+          0 -9px 0 0 rgb(162, 139, 255),
+          0 9px 0 0 rgb(129, 18, 247);
       }
 
       .pixel-flat-pink-container {
         background-color: rgb(191, 28, 255, 0.3);
         box-shadow:
-          -9px 0 0 0 rgb(222, 143, 254),
-          9px 0 0 0 rgb(191, 28, 255),
-          0 -9px 0 0 rgb(222, 143, 254),
-          0 9px 0 0 rgb(191, 28, 255);
+          -8px 0 0 0 rgb(222, 143, 254),
+          8px 0 0 0 rgb(191, 28, 255),
+          0 -8px 0 0 rgb(222, 143, 254),
+          0 8px 0 0 rgb(191, 28, 255);
       }
 
       .retro-desktop-container {
         background-color: black;
         box-shadow:
-          -9px 0 0 0 rgb(171, 171, 171),
-          9px 0 0 0 rgb(171, 171, 171),
-          0 -9px 0 0 rgb(171, 171, 171),
-          0 9px 0 0 rgb(171, 171, 171);
+          -8px 0 0 0 rgb(171, 171, 171),
+          8px 0 0 0 rgb(171, 171, 171),
+          0 -8px 0 0 rgb(171, 171, 171),
+          0 8px 0 0 rgb(171, 171, 171);
       }
 
       @keyframes glow {

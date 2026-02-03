@@ -1,23 +1,35 @@
 ---
 import { Image } from "astro:assets";
 import { MaxWidthContainer } from "../MaxWidthContainer/MaxWidthContainer";
-import Astronaut from "public/assets/images/astronaut-contact.png";
+import Astronaut from "public/assets/images/astronaut-phone.png";
 ---
 
 <section>
-  <MaxWidthContainer className="items-center px-10 sm:px-0 sm:pl-16 justify-around min-h-[600px] sm:min-h-[800px]">
+  <MaxWidthContainer
+    className="items-center px-10 sm:px-0 sm:pl-16 justify-around min-h-[600px] sm:min-h-[800px]"
+  >
     <div class="flex flex-col z-20 gap-10">
-      <h1 class="z-10 text-white text-4xl sm:text-5xl md:text-6xl w-full">Want to contact with me?</h1>
-      <p class="text-white text-2xl sm:text-3xl md:text-4xl sm:w-[500px] font-VT323">
+      <h1 class="z-10 text-white text-4xl sm:text-5xl md:text-6xl w-full">
+        Want to contact with me?
+      </h1>
+      <p
+        class="text-white text-2xl sm:text-3xl md:text-4xl sm:w-[500px] font-VT323"
+      >
         If you want to take me on some exciting adventure, don't be afraid and
         let me know!
       </p>
-      <button
-        class="py-2 pixel-flat-pink-container px-6 text-white text-xl sm:text-2xl z-10 cursor-pointer w-[240px] sm:w-[300px]"
-        ><a href={"mailto:dariusz.praczuk@gmail.com"}>Send me a message</a
-        ></button
-      >
+      <a href={"mailto:dariusz.praczuk@gmail.com"} class="w-fit">
+        <button
+          class="py-2 pixel-flat-pink-container px-6 text-white text-xl sm:text-2xl z-10 cursor-pointer w-[240px] sm:w-[300px]"
+          >Send me a message</button
+        >
+      </a>
     </div>
-    <Image src={Astronaut} width={560} alt="" class={"hidden z-10 lg:block z-10 mr-0 2xl:mr-20"} />
+    <Image
+      src={Astronaut}
+      width={560}
+      alt=""
+      class={"hidden z-10 lg:block mr-0 2xl:mr-20"}
+    />
   </MaxWidthContainer>
 </section>

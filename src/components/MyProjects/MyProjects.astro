@@ -1,31 +1,22 @@
 ---
 import { getProjectsList } from "../../api/ProjectsGetList";
 import { MaxWidthContainer } from "../MaxWidthContainer/MaxWidthContainer";
-import {ProjectsCarousel} from "../ProjectsCarousel/ProjectsCarousel";
-import {CompaniesCarousel} from "../CompaniesCarousel/CompaniesCarousel";
+import { ProjectsCarousel } from "../ProjectsCarousel/ProjectsCarousel";
 
-const projects = await getProjectsList();
+const projects = await getProjectsList().then((projects) =>
+  projects.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
+);
 ---
 
-<>
-  <section class="2xl:min-h-screen">
-    <MaxWidthContainer className="gap-20">
-      <div class="flex flex-col w-full z-10">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl px-10  tracking-wide text-white text-center mb-10 sm:mb-28">
-          Missions I've been on
-        </h1>
-        {projects &&
-          <ProjectsCarousel client:load projects={projects}/>
-        }
-      </div>
-    </MaxWidthContainer>
-  </section>
-  <section>
-    <MaxWidthContainer className="flex-col">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl tracking-wide text-white text-center mt-32 z-10">
-        I also worked with
+<section class="2xl:min-h-screen">
+  <MaxWidthContainer className="gap-20">
+    <div class="flex flex-col w-full z-10">
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl px-10 tracking-wide text-white text-center mb-10 sm:mb-28"
+      >
+        Missions I've been on
       </h1>
-      <CompaniesCarousel client:load />
-    </MaxWidthContainer>
-  </section>
-</>
+      {projects && <ProjectsCarousel client:load projects={projects} />}
+    </div>
+  </MaxWidthContainer>
+</section>
