@@ -59,12 +59,27 @@ const {
     <MaxWidthContainer className="mx-5 md:mx-10 pb-10">
       <div class="text-white z-10 pt-7 md:pt-10 w-full">
         <a
-          href="javascript:history.back()"
+          id="back-button"
+          href="/"
           class="flex items-center text-3xl font-VT323 gap-3.5 hover:text-neonBlue hover:[text-shadow:_2px_2px_0_rgb(250_0_255_/_200%)]"
         >
           <Image src={Arrow} alt="" class="w-8 rotate-90" />
           <p class="mb-0.5">Back</p>
         </a>
+        <script>
+          const backButton = document.getElementById("back-button");
+
+          if (backButton) {
+            backButton.addEventListener("click", (e) => {
+              const hasHistory =
+                window.history.length > 1 && document.referrer !== "";
+              if (hasHistory) {
+                e.preventDefault();
+                window.history.back();
+              }
+            });
+          }
+        </script>
         <div
           class="font-VT323 flex flex-col lg:flex-row justify-between py-5 lg:py-10"
         >
