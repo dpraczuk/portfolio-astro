@@ -1,6 +1,6 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import "src/styles/main.css";
+import { ClientRouter } from "astro:transitions";
+import "@/styles/main.css";
 
 interface Props {
   title: string;
@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
     <link
       rel="preload"
       href="/assets/fonts/GIMENELL.TTF"

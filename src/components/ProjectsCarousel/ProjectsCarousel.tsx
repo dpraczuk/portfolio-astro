@@ -1,9 +1,10 @@
 import { useKeenSlider } from "keen-slider/react";
 import type { Project } from "@/types/types.ts";
-import Arrow from "public/assets/images/Arrow.png";
 import { cn } from "@/utils/utils";
 import ProjectItem from "./ProjectItem/ProjectItem";
 import { useState } from "react";
+
+const ARROW_SRC = "/assets/images/Arrow.png";
 
 export const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,14 +57,14 @@ export const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
           disabled={isFirstSlide}
           className={cn(isFirstSlide && "opacity-30")}
         >
-          <img src={Arrow.src} className="w-10 rotate-90" />
+          <img src={ARROW_SRC} className="w-10 rotate-90" />
         </button>
         <button
           onClick={handleNext}
           disabled={isLastSlide}
           className={cn(isLastSlide && "opacity-30")}
         >
-          <img src={Arrow.src} className="w-10 -rotate-90" />
+          <img src={ARROW_SRC} className="w-10 -rotate-90" />
         </button>
       </div>
     </div>

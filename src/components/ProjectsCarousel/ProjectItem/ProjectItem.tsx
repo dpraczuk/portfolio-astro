@@ -1,6 +1,6 @@
 import type { Project } from "@/types/types";
-import ImagePlaceholder from "public/assets/images/img-placeholder.svg";
-import Arrow from "public/assets/images/Arrow.png";
+const IMAGE_PLACEHOLDER_SRC = "/assets/images/img-placeholder.png";
+const ARROW_SRC = "/assets/images/Arrow.png";
 
 const ProjectItem = (project: Project) => {
   const image = project.projectImages[0];
@@ -21,7 +21,7 @@ const ProjectItem = (project: Project) => {
       ) : (
         <div className="flex pixel-flat-pink-container items-center justify-center">
           <img
-            src={ImagePlaceholder.src}
+            src={IMAGE_PLACEHOLDER_SRC}
             alt={"image placeholder"}
             className="py-3 h-full w-full aspect-video"
           />
@@ -42,7 +42,7 @@ const ProjectItem = (project: Project) => {
           className="flex gap-3 cursor-pointer"
         >
           <p className="text-3xl font-VT323">More</p>
-          <img src={Arrow.src} alt="" className={"h-9 w-9 -rotate-90"} />
+          <img src={ARROW_SRC} alt="" className={"h-9 w-9 -rotate-90"} />
         </a>
       </div>
     </div>

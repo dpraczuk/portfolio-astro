@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { MaxWidthContainer } from "../MaxWidthContainer/MaxWidthContainer";
-import Astronaut from "public/assets/images/astronaut-phone.png";
+
+const ASTROUNAUT_SRC = "/assets/images/astronaut-phone.png";
 ---
 
 <section>
@@ -26,8 +27,9 @@ import Astronaut from "public/assets/images/astronaut-phone.png";
       </a>
     </div>
     <Image
-      src={Astronaut}
+      src={ASTROUNAUT_SRC}
       width={560}
+      height={560}
       alt=""
       class={"hidden z-10 lg:block mr-0 2xl:mr-20"}
     />
