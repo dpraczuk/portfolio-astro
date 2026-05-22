@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ProjectImage } from "@/types/types";
-import Arrow from "/public/assets/images/Arrow.png";
+
+const ARROW_SRC = "/assets/images/Arrow.png";
 
 export const ProjectGallery = ({
   projectImages,
@@ -30,7 +31,7 @@ export const ProjectGallery = ({
           className="md:m-2 md:p-2"
           aria-label="Previous image"
         >
-          <img src={Arrow.src} alt="" className="min-w-8 w-10 rotate-90" />
+          <img src={ARROW_SRC} alt="" className="min-w-8 w-10 rotate-90" />
         </button>
       )}
       <div className="flex items-center justify-center mx-3">
@@ -50,7 +51,7 @@ export const ProjectGallery = ({
           className="md:m-2 md:p-2"
           aria-label="Next image"
         >
-          <img src={Arrow.src} alt="" className="min-w-8 w-10 -rotate-90" />
+          <img src={ARROW_SRC} alt="" className="min-w-8 w-10 -rotate-90" />
         </button>
       )}
     </div>
