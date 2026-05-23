@@ -36,7 +36,23 @@ export const getProjectsList = async () => {
   };
 
   const response = await fetch(import.meta.env.HYGRAPH_API_URL, query);
+
+  if (!response.ok) {
+    throw new Error(`Hygraph API error: ${response.status}`);
+  }
+
   const json = await response.json();
+
+  if (json.errors) {
+    throw new Error(
+      `Hygraph GraphQL error: ${json.errors.map((e: { message: string }) => e.message).join(", ")}`,
+    );
+  }
+
+  if (!json.data?.projects || !Array.isArray(json.data.projects)) {
+    throw new Error("Unexpected API response: missing 'data.projects' array");
+  }
+
   const projects: Project[] = json.data.projects;
 
   return projects;

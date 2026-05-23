@@ -11,7 +11,7 @@ import { Footer } from "../components/Footer/Footer";
 
 <Layout title="Dariusz Praczuk - Frontend Developer">
   <main class="relative font-gimenell lg:bg-transparent">
-    <StarsBackground client:load className="min-h-[100%] absolute" />
+    <StarsBackground client:only="react" className="min-h-[100%] absolute" />
     <MainHeader />
     <AboutSection />
     <BioSection />
