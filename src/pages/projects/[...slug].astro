@@ -52,7 +52,7 @@ const {
 <Layout title={title}>
   <main class="relative font-gimenell w-full min-h-screen flex justify-center">
     <StarsBackground
-      client:load
+      client:only="react"
       amountDesktop={50}
       amountMobile={20}
       className="absolute h-full"
@@ -74,18 +74,21 @@ const {
           <p class="mb-0.5">Back</p>
         </a>
         <script>
-          const backButton = document.getElementById("back-button");
+          document.addEventListener("astro:page-load", () => {
+            const backButton = document.getElementById("back-button");
 
-          if (backButton) {
-            backButton.addEventListener("click", (e) => {
-              const hasHistory =
-                window.history.length > 1 && document.referrer !== "";
-              if (hasHistory) {
-                e.preventDefault();
-                window.history.back();
-              }
-            });
-          }
+            if (backButton) {
+              backButton.addEventListener("click", (e) => {
+                const cameFromThisSite = document.referrer.startsWith(
+                  window.location.origin,
+                );
+                if (cameFromThisSite) {
+                  e.preventDefault();
+                  window.history.back();
+                }
+              });
+            }
+          });
         </script>
         <div
           class="font-VT323 flex flex-col lg:flex-row justify-between py-5 lg:py-10"

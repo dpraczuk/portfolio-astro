@@ -5,6 +5,13 @@ import ProjectItem from "./ProjectItem/ProjectItem";
 import { useState } from "react";
 
 const ARROW_SRC = "/assets/images/Arrow.png";
+const SLIDE_STORAGE_KEY = "carousel-slide";
+
+function getStoredSlide(): number {
+  if (typeof window === "undefined") return 0;
+  const stored = sessionStorage.getItem(SLIDE_STORAGE_KEY);
+  return stored ? parseInt(stored, 10) : 0;
+}
 
 export const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -26,12 +33,16 @@ export const ProjectsCarousel = ({ projects }: { projects: Project[] }) => {
       },
     },
     slides: { perView: 1 },
+    initial: getStoredSlide(),
     created(s) {
+      setCurrentSlide(s.track.details.rel);
       setMaxSlide(s.track.details.maxIdx);
     },
     slideChanged(s) {
-      setCurrentSlide(s.track.details.rel);
+      const rel = s.track.details.rel;
+      setCurrentSlide(rel);
       setMaxSlide(s.track.details.maxIdx);
+      sessionStorage.setItem(SLIDE_STORAGE_KEY, String(rel));
     },
   });
 

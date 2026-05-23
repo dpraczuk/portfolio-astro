@@ -13,7 +13,10 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Dariusz Praczuk — Frontend Developer portfolio"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -22,6 +25,13 @@ const { title } = Astro.props;
     <link
       rel="preload"
       href="/assets/fonts/GIMENELL.TTF"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/VT323.ttf"
       as="font"
       type="font/ttf"
       crossorigin
